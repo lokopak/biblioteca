@@ -15,6 +15,10 @@ require_once(__DIR__ . "/../../paginador/paginador.php");
  * @param string $ordenPor Campo por el que se quiere ordenar los elementos.
  * @param string $orden Orden en el que se quieren mostrar los elementos.
  * @param int $estado Estado en el que se encuentran los elementos que se quieren buscar.
+ * 
+ * @return mixed
+ * 
+ * @throws
  */
 function sociosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
 {
@@ -38,11 +42,14 @@ function sociosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
                 $query .= sprintf(", apellidos %s", $orden);
             }
 
-            // Calculamos el inicio de la página
-            $inicio = $limite * ($pagina - 1);
+            // Agregamos el límite para el paginador.
+            if (isset($inicio) && isset($pagina)) {
+                // Calculamos el inicio de la página
+                $inicio = $limite * ($pagina - 1);
 
-            // Agregamos el límite a la query.
-            $query .= sprintf(" LIMIT %d, %d", $inicio, $limite);
+                // Agregamos el límite a la query.
+                $query .= sprintf(" LIMIT %d, %d", $inicio, $limite);
+            }
 
             // Enviamos la consulta
             $resultado = realizarQuery($query);
@@ -114,7 +121,7 @@ function sociosBuscarUno($idSocio)
             }
         }
     } catch (Exception $e) {
-        $errores[] = "Ha ocurrido un errror: " . $e->getMessage();
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
     }
 
     // Se ha producido un error, devolvemos un null.
