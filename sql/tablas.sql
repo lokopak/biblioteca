@@ -53,8 +53,8 @@ CREATE TABLE prestamos (
     fechaInicio date NOT NULL DEFAULT (CURRENT_DATE),
     fechaDevolucion date,
     estado tinyint(3) NOT NULL DEFAULT 0,
-    CONSTRAINT fk_idSocio FOREIGN KEY (idSocio) REFERENCES socios(idSocio),
-    CONSTRAINT fk_idLibro FOREIGN KEY (idLibro) REFERENCES libros(idLibro),
+    CONSTRAINT fk_idSocio FOREIGN KEY (idSocio) REFERENCES socios(idSocio) ON DELETE CASCADE ,
+    CONSTRAINT fk_idLibro FOREIGN KEY (idLibro) REFERENCES libros(idLibro) ON DELETE CASCADE,
     INDEX idx_numero_socio (idSocio),
     INDEX idx_numero_libro (idLibro)
 );
@@ -62,8 +62,8 @@ CREATE TABLE prestamos (
 CREATE TABLE autor_libro (
     idAutor int(11) NOT NULL ,
     idLibro int(11) NOT NULL,
-    CONSTRAINT fk_autorlibro_idAutor FOREIGN KEY (idAutor) REFERENCES autores(idAutor),
-    CONSTRAINT fk_autorlibro_idLibro FOREIGN KEY (idLibro) REFERENCES libros(idLibro),
+    CONSTRAINT fk_autorlibro_idAutor FOREIGN KEY (idAutor) REFERENCES autores(idAutor) ON DELETE CASCADE,
+    CONSTRAINT fk_autorlibro_idLibro FOREIGN KEY (idLibro) REFERENCES libros(idLibro) ON DELETE CASCADE,
     INDEX idx_numero_libro (idLibro),
     INDEX idx_numero_autor (idAutor)
 );
