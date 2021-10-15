@@ -138,3 +138,26 @@ function autoresActualizar($nombre, $apellidos, $nacionalidad, $fechaNacimiento,
     }
     return false;
 }
+
+/**
+ * Borra un autor de la tabla correspondiente.
+ * 
+ * @param int $idAutor La id del autor que se va a borrar.
+ * 
+ * @throws Exception
+ */
+function autoresBorrar($autor)
+{
+    try {
+
+        // Tal vez no debería eliminarse el autor.
+        $query = sprintf("DELETE FROM autores WHERE autores.idAutor = %d", (int)$autor['idAutor']);
+        // $query = sprintf("UPDATE autores SET estado = %d WHERE idAutor = %d", 0, $autor['idAutor']);
+
+        $resultado = realizarQuery($query);
+
+        return $resultado;
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
+    }
+}
