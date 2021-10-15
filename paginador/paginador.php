@@ -18,9 +18,13 @@
  */
 function paginar($pagina, $limite, $elementos, $total)
 {
+    // Si no se proporciona página, cogemos la página 1 por defecto.
+    if (null === $pagina) {
+        $pagina = 1;
+    }
 
-    // Por si acaso el límite es más grande que el tamaño del array de elementos...
-    if ($limite >= $total) {
+    // Por si acaso el límite no se proporciona o es mayor que el total de elementos...
+    if (null === $limite || $limite >= $total) {
         // Nos aseguramos que el límite está dentro de lo permitido igualándolo al número de elementos.
         $limite = $total;
     }
