@@ -123,10 +123,62 @@ function sociosBuscarUno($idSocio)
  * Actualiza un socio con los nuevos datos
  * recividos.
  * 
- * @param $nombre El nuevo nombre del socio
- * @param $apellidos Los nuevos apellidos del socio
- * @param $direccion La nueva direccion del socio
- * @param $fechaNacimiento La nueva fecha de nacimiento del socio.
+ * @param string $nombre El nuevo nombre del socio
+ * @param string $apellidos Los nuevos apellidos del socio
+ * @param string $direccion La nueva direccion del socio
+ * @param string $fechaNacimiento La nueva fecha de nacimiento del socio.
+ * @param string $DNI El dni del nuevo socio.
+ * @param string $telefono El teléfono del nuevo socio
+ * @param string $email El email del nuevo socio.
+ * @param int $estado El estado del nuevo socio.
+ * @param string $fechaAlta La fecha en la que se da de alta el nuevo socio.
+ * 
+ * @return boolean El resultado de la operación
+ * 
+ * @throws Exception 
+ */
+function sociosInsertarNuevo($nombre, $apellidos, $direccion, $fechaNacimiento, $DNI, $telefono, $email, $estado, $fechaAlta)
+{
+    try {
+        $query = sprintf(
+            "INSERT INTO socios (DNI, nombre, apellidos, fechaNacimiento, direccion, telefono, email, fechaAlta, estado)
+            VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d)",
+            $DNI,
+            $nombre,
+            $apellidos,
+            $fechaNacimiento,
+            $direccion,
+            $telefono,
+            $email,
+            $fechaAlta,
+            $estado
+        );
+
+        // Enviamos la query
+        $resultado = realizarQuery($query);
+
+        // Si se ha obtenido un resultado
+        if ($resultado) {
+            return $resultado;
+        }
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
+    }
+    return false;
+}
+
+/**
+ * Actualiza un socio con los nuevos datos
+ * recividos.
+ * 
+ * @param string $nombre El nuevo nombre del socio
+ * @param string $apellidos Los nuevos apellidos del socio
+ * @param string $direccion La nueva direccion del socio
+ * @param string $fechaNacimiento La nueva fecha de nacimiento del socio.
+ * @param string $DNI El dni del nuevo socio.
+ * @param string $telefono El teléfono del nuevo socio
+ * @param string $email El email del nuevo socio.
+ * @param int $estado El estado del nuevo socio.
  * @param $idSocio La id correspondiente al socio que se desea actualizar.
  * 
  * @return boolean El resultado de la operación
