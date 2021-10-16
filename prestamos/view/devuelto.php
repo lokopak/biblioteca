@@ -17,7 +17,7 @@
             <div class="alert alert-success text-center w-50 m-auto" role="alert">
                 <i class="bi bi-emoji-sunglasses fs-1"></i><br>
                 <h4 class="alert-heading">¡ Listo !</h4>
-                <p>El prestamo ha sido agregado correctamente.</p>
+                <p>El prestamo ha sido devuelto correctamente.</p>
             </div>
         </div>
         <div class="col-12 my-4 justify-content-center">
@@ -27,17 +27,6 @@
                     <a href="/biblioteca/prestamos/listado.php"
                         class="btn btn-outline-primary w-100 text-uppercase py-3">
                         <i class="bi bi-vector-pen me-2 fs-1"></i><br>Listado de préstamos
-                    </a>
-                </li>
-                <li class="list-group-item  mb-2 p-0">
-                    <a href="/biblioteca/prestamos/crear.php" class="btn btn-outline-primary w-100 text-uppercase py-3">
-                        <i class="bi bi-book me-2 fs-1"></i><br>Crear otro préstamo
-                    </a>
-                </li>
-                <li class="list-group-item  mb-2 p-0">
-                    <a href="/biblioteca/prestamos/editar.php?idPrestamo=<?= $idPrestamo ?>"
-                        class="btn btn-outline-primary w-100 text-uppercase py-3">
-                        <i class="bi bi-book me-2 fs-1"></i><br>Editar el préstamo
                     </a>
                 </li>
             </ul>

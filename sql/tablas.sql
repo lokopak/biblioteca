@@ -87,16 +87,16 @@ INSERT INTO `autores` (`idAutor`, `nombre`, `apellidos`, `nacionalidad`, `fechaN
 
 INSERT INTO `libros` (`idLibro`, `titulo`, `editorial`, `genero`, `isbn`, `anhoPublicacion`, `fechaAlta`, `estado`) VALUES
 (1, 'El italiano', 'Alfaguara', 'Novela', '9788420460499', 2021, '2021-10-09', 1),
-(2, 'Los vencejos', 'Tusquets Editores', 'Novela', '9788490669983', 2021, '2021-10-09', 1),
+(2, 'Los vencejos', 'Tusquets Editores', 'Novela', '9788490669983', 2021, '2021-10-09', 2),
 (3, 'A fuego lento', 'Planeta', 'Novela', '9788408246367', 2021, '2021-10-09', 1),
 (4, 'El Silmarilion', 'Minotauro', 'Literatura', '9788445073810', 2002, '2021-10-09', 1),
-(5, 'El señor de los anillos', 'Minotauro', 'Literatura', '9788445007709', 2019, '2021-10-09', 1),
+(5, 'El señor de los anillos', 'Minotauro', 'Literatura', '9788445007709', 2019, '2021-10-09', 2),
 (6, 'El Hobbit', 'Minotauro', 'Literatura', '9788445073803', 2002, '2021-10-09', 1),
-(7, 'Los hijos de Húrin', 'Minotauro', 'Literatura', '9788445076347', 2007, '2021-10-09', 1),
-(8, 'Miguel Strogoff', 'RBA Libros', 'Novela', '9788491870074', 2018, '2021-10-09', 1),
-(9, 'La isla y los demonios', 'Destino', 'Literatura', '9788423306817', 1991, '2021-10-10', 1),
+(7, 'Los hijos de Húrin', 'Minotauro', 'Literatura', '9788445076347', 2007, '2021-10-09', 2),
+(8, 'Miguel Strogoff', 'RBA Libros', 'Novela', '9788491870074', 2018, '2021-10-09', 2),
+(9, 'La isla y los demonios', 'Destino', 'Literatura', '9788423306817', 1991, '2021-10-10', 3),
 (10, 'Romancero gitano', 'S.L.U. Espasa Libros', 'Poesía', '9788467036152', 2011, '2021-10-10', 1),
-(11, 'Charlie y la fábrica de chocolate', 'Alfaguara', 'Infantíl', '9788420464503', 2002, '2021-10-10', 1),
+(11, 'Charlie y la fábrica de chocolate', 'Alfaguara', 'Infantíl', '9788420464503', 2002, '2021-10-10', 2),
 (12, 'Lazarillo de Tormes', 'S.L.U. Espasa Libros', 'Novela', '9788467052282', 2018, '2021-10-10', 1),
 (13, 'Don Quijote de La Mancha', 'S.L.U. Espasa Libros', 'Novela', '9788467016901', 2004, '2021-10-10', 1);
 

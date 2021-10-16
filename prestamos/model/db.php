@@ -5,9 +5,9 @@
 // que solo se carge una vez.
 
 // Cargamos el contenido del archivo conexion.php (si no ha sido cargado anteriormente)
-require_once("../conexion.php");
+require_once(__DIR__ . "/../../conexion/conexion.php");
 // Cargamos el archivo necesario para paginar los elementos encontrados.
-require_once("../paginador.php");
+require_once(__DIR__ . "/../../paginador/paginador.php");
 
 // Unos posibles estados en los préstamos.
 $estadosPrestamos = [
@@ -46,7 +46,7 @@ function prestamoBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
             $prestamos = [];
 
             // Montamos el string de la query para realizar la búsqueda.
-            $query = "SELECT prestamos.*, socios.idSocio, socios.nombre, socios.apellidos, libros.titulo
+            $query = "SELECT prestamos.*, socios.idSocio, socios.nombre, socios.apellidos, libros.titulo, libros.idLibro
                         FROM prestamos
                         LEFT JOIN socios ON socios.idSocio = prestamos.idSocio
                         LEFT JOIN libros ON libros.idLibro = prestamos.idLibro";
@@ -223,54 +223,31 @@ function prestamosAcutalizar($prestamo)
 }
 
 /**
- * Esta función nos ayuda a rellenar los valores de
- * un préstamo sin tener que repetir todo el código
- * de nuevo.
+ * Permite actualizar directamente en estado de un préstamo
+ * directamente.
  * 
- * @param array $datos Un array con todos los datos que se van a
- *             asignar al prestamo.
- * @param array $prestamo Un array con los valores del préstamo.
- *              NOTA: $prestamo = null indica que el valor préstamo es opcional y que
- *                                     en caso de no proporcionarlo, toma el valor
- *                                     por defecto de null.
+ * @param int $idPrestamo La id del préstamo a actualizar.
+ * @param int $estado El nuevo estado del préstamo.
  * 
- * @return array Devuelve el préstamo una vez modificado con los datos recibidos.
+ * @return boolean El resultado de la operación.
  */
-function rellenarPrestamo($datos, $prestamo = null)
+function prestamosActualizarEstado($idPrestamo, $estado)
 {
-    // Si el préstamo es null estamos crando uno nuevo, asíque iniciamos el $prestamo como un array.
-    if ($prestamo === null) {
-        $prestamo = [];
-    }
+    try {
+        // La función sprintf("...", ...) devuelve un string formateado agregando los valores indicados en las posiciones correspondientes.
+        // Es más seguro, fiable y manejable que usar concatenaciones de strings.
+        $query = sprintf(
+            "UPDATE prestamos
+                    SET estado = %d
+                    WHERE idPrestamo = %d",
+            $estado,
+            $idPrestamo,
+        );
 
-    // NOTA: HABRÍA QUE DAR UN VALOR POR DEFECTO EN EL CASO DE QUE ALGÚN VALOR NECESARIO NO VENGA
-    // EN EL ARRAY CON LOS DATOS.
-
-    // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
-    if (isset($datos["idSocio"])) {
-        // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
-        $prestamo["idSocio"] = (int)$datos["idSocio"];
+        // Devolvemos el resultado de realizar la consulta en la base de datos.
+        return realizarQuery($query);
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
     }
-    // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
-    if (isset($datos["idLibro"])) {
-        // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
-        $prestamo["idLibro"] = (int)$datos["idLibro"];
-    }
-    // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
-    if (isset($datos["fechaInicio"])) {
-        // Con el refundimiento (string) nos aseguramos de que el valor almacenado es un string.
-        $prestamo["fechaInicio"] = (string)$datos["fechaInicio"];
-    }
-    // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
-    if (isset($datos["fechaDevolucion"])) {
-        // Con el refundimiento (string) nos aseguramos de que el valor almacenado es un string.
-        $prestamo["fechaDevolucion"] = (string)$datos["fechaDevolucion"];
-    }
-    // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
-    if (isset($datos["estado"])) {
-        // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
-        $prestamo["estado"] = (int)$datos["estado"];
-    }
-
-    return $prestamo;
+    return false;
 }
