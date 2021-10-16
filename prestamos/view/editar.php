@@ -68,33 +68,41 @@
                 <label class="form-check-label me-2" for="estado">Estado del préstamo:</label>
                 <div class="form-check form-check-inline">
                     <?php if ($prestamo["estado"] === 0) { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="0" checked>
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_DEVUELTO ?>" checked>
                     <?php } else { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="0">
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_DEVUELTO ?>">
                     <?php } ?>
                     <label class="form-check-label" for="estado">Devuelto</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <?php if ((int)$prestamo["estado"] === 1) { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="1" checked>
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_ACTIVO ?>" checked>
                     <?php } else { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="1">
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_ACTIVO ?>">
                     <?php } ?>
                     <label class="form-check-label" for="estado">Activo</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <?php if ((int)$prestamo["estado"] === 2) { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="2" checked>
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_FUERA_PLAZO ?>" checked>
                     <?php } else { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="2">
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_FUERA_PLAZO ?>">
                     <?php } ?>
                     <label class="form-check-label" for="estado">Fuera de plazo</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <?php if ((int)$prestamo["estado"] === 3) { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="3" checked>
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_CON_DEFECTOS ?>" checked>
                     <?php } else { ?>
-                    <input class="form-check-input" type="radio" name="estado" id="estado" value="3">
+                    <input class="form-check-input" type="radio" name="estado" id="estado"
+                        value="<?= PRESTAMO_ESTADO_CON_DEFECTOS ?>">
                     <?php } ?>
                     <label class="form-check-label" for="estado">Con defectos</label>
                 </div>

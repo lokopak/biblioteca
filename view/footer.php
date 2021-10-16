@@ -18,7 +18,7 @@ if (hayErrores()) {
 ?>
 
 </div> <!-- Fin del contenedor principal -->
-<footer class="bg-dark px-0 py-3">
+<footer class="bg-black px-0 py-3">
     <div class="container my-4 border-top">
         <div class="row mt-3">
             <div class="col-3 text-white"><i class="bi bi-record-circle-fill"></i> Laboris Consulting</div>

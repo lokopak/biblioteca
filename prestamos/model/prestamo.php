@@ -1,5 +1,11 @@
 <?php
 
+
+/**
+ * 
+ */
+// class Prestamo
+// {
 /**
  * Este archivo contiene las constantes y funciones relativas a un préstamo.
  */
@@ -20,6 +26,11 @@ const PRESTAMO_ESTADOS = [
     PRESTAMO_ESTADO_FUERA_PLAZO => "Fuera de plazo"
 ];
 
+//     private $idPrestamo;
+
+//     private $idSocio;
+
+//     private $estado;
 /**
  * Esta función nos ayuda a rellenar los valores de
  * un préstamo sin tener que repetir todo el código
@@ -34,7 +45,7 @@ const PRESTAMO_ESTADOS = [
  * 
  * @return array Devuelve el préstamo una vez modificado con los datos recibidos.
  */
-function rellenarPrestamo($datos, $prestamo = null)
+function rellenarPrestamo($datos, &$prestamo = null)
 {
     // Si el préstamo es null estamos crando uno nuevo, asíque iniciamos el $prestamo como un array.
     if ($prestamo === null) {
@@ -44,11 +55,6 @@ function rellenarPrestamo($datos, $prestamo = null)
     // NOTA: HABRÍA QUE DAR UN VALOR POR DEFECTO EN EL CASO DE QUE ALGÚN VALOR NECESARIO NO VENGA
     // EN EL ARRAY CON LOS DATOS.
 
-    // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
-    if (isset($datos["idSocio"])) {
-        // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
-        $prestamo["idSocio"] = (int)$datos["idSocio"];
-    }
     // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
     if (isset($datos["idLibro"])) {
         // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
@@ -67,7 +73,7 @@ function rellenarPrestamo($datos, $prestamo = null)
     // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
     if (isset($datos["estado"])) {
         // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
-        $prestamo["estado"] = (int)$datos["estado"];
+        $prestamo["estado"] = (int) $datos["estado"];
     }
 
     return $prestamo;

@@ -202,7 +202,7 @@ function prestamosInsertar($prestamo)
  * 
  * @return mixed Devuelve el resutlado de la ejecución de la consulta.
  */
-function prestamosAcutalizar($prestamo)
+function prestamosActualizar($prestamo)
 {
     // La función sprintf("...", ...) devuelve un string formateado agregando los valores indicados en las posiciones correspondientes.
     // Es más seguro, fiable y manejable que usar concatenaciones de strings.
@@ -213,9 +213,9 @@ function prestamosAcutalizar($prestamo)
         $prestamo['idLibro'],
         $prestamo['idSocio'],
         $prestamo['fechaInicio'],
-        $prestamo['idPrestamo'],
+        $prestamo['fechaDevolucion'],
         $prestamo['estado'],
-        $prestamo['fechaDevolucion']
+        $prestamo['idPrestamo']
     );
 
     // Devolvemos el resultado de realizar la consulta en la base de datos.

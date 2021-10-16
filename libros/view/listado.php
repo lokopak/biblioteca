@@ -172,7 +172,7 @@ require(__DIR__ . "/../../view/head.php");
                 <?php
                     }
                     ?>
-                </tb+ody>
+            </tbody>
         </table>
 
         <?php
