@@ -17,7 +17,7 @@ require_once(__DIR__ . "/../../error/error.php");
  * 
  * @return array Los elementos encontrados.
  */
-function librosBuscarTodos($pagina, $limite, $ordenPor, $orden)
+function librosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
 {
     try {
         // Montamos la query para realizar la búsqueda.
@@ -27,8 +27,15 @@ function librosBuscarTodos($pagina, $limite, $ordenPor, $orden)
                         GROUP_CONCAT(autores.idAutor,',', autores.nombre,',', autores.apellidos SEPARATOR '#' ) AS autores
                         FROM libros
                         LEFT JOIN autor_libro ON libros.idLibro = autor_libro.idLibro
-                        LEFT JOIN autores ON autores.idAutor = autor_libro.idAutor
-                        GROUP BY libros.idLibro";
+                        LEFT JOIN autores ON autores.idAutor = autor_libro.idAutor";
+
+        // Si se ha indicado algún estado en concreto, lo aplicamos.
+        if (!is_null($estado)) {
+            $query .= sprintf(" WHERE libros.estado = %d", $estado);
+        }
+
+        $query .= " GROUP BY libros.idLibro";
+
         // NOTA: hay que aplicar un where para buscar libros con estado determinado.
 
         // Le agregamos un orden a la búsqueda.

@@ -19,7 +19,7 @@ $ordenPor = obtenerDesdeGet("ordenPor", "apellidos");
 $orden = obtenerDesdeGet("orden", "ASC");
 
 // Obtenemos todos los autores de la tabla.
-$resultado = librosBuscarTodos($pagina, $limite, $ordenPor, $orden);
+$resultado = librosBuscarTodos($pagina, $limite, $ordenPor, $orden, null);
 
 // Mostramos el contenido html de la página
 require(__DIR__ . "/view/listado.php");

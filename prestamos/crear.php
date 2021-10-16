@@ -104,7 +104,7 @@ if (esPost()) {
 }
 
 // Las páginas y los límites los enviamos como null para que se cargen todos los que se encuentren en la base de datos.
-$libros = librosBuscarTodos(null, null, "apellidos", "ASC");
+$libros = librosBuscarTodos(null, null, "apellidos", "ASC", LIBRO_ESTADO_DISPONIBLE);
 $socios = sociosBuscarTodos(null, null, "apellidos", "ASC", SOCIO_ESTADO_ACTIVO);
 
 // Mostramos el contenido html de la página
