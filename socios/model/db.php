@@ -27,6 +27,8 @@ function sociosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
         // Montamos la query para realizar la búsqueda.
         $query = "SELECT * FROM socios";
 
+        $query .= sprintf(" WHERE socios.estado = %d", $estado);
+
         // Le agregamos un orden a la búsqueda.
         $query .= sprintf(" ORDER BY %s %s", $ordenPor, $orden);
         // En el caso de ordenar por apellidos, le agregamos también que lo ordene por nombre
@@ -38,7 +40,7 @@ function sociosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
         }
 
         // Agregamos el límite para el paginador.
-        if (isset($inicio) && isset($pagina)) {
+        if (isset($limite) && isset($pagina)) {
             // Calculamos el inicio de la página
             $inicio = $limite * ($pagina - 1);
 
@@ -59,7 +61,7 @@ function sociosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
             // Realizamos el query.
             $total = realizarQuery($query);
 
-            // Agregamos todos los autores encontrados en el array de libros.
+            // Agregamos todos los socioes encontrados en el array de libros.
             // mysqli_fetch_all devuelve un array con todas las entradas que ha encontrado con el query.
             $socios = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 
@@ -72,7 +74,7 @@ function sociosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
                 $total = (int) mysqli_fetch_row($total)[0];
             }
 
-            // Devolvemos el array de autores.
+            // Devolvemos el array de socioes.
             return paginar($pagina, $limite, $socios, $total);
         }
     } catch (Exception $e) {
@@ -86,6 +88,8 @@ function sociosBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
 /**
  * Busca un socio con la idSocio proporcionada.
  * En caso de no encontrarlo, devuelve null.
+ * 
+ * @param int $idSocio La id del socio a buscar
  */
 function sociosBuscarUno($idSocio)
 {
