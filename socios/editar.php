@@ -44,6 +44,11 @@ if (esPost()) {
     $email = obtenerDesdePost('email', null);
     $estado = obtenerDesdePost('estado', null);
 
+    //NOTA: Aquí habría que verificar y validar todos los datos recividos.
+
+    // Normalmente la fecha de alta no se actualiza núnca.
+    // $fechaAlta = obtenerDesdePost('fechaAlta', null);
+
     $resultado = sociosActualizar($nombre, $apellidos, $direccion, $fechaNacimiento, $DNI, $telefono, $email, (int) $estado, $idSocio);
 
     if ($resultado) {
