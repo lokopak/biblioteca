@@ -222,3 +222,28 @@ function sociosActualizar($nombre, $apellidos, $direccion, $fechaNacimiento, $DN
     }
     return false;
 }
+
+/**
+ * Borra un socio de la tabla correspondiente.
+ * 
+ * @param int $idSocio La id del socio que se va a borrar.
+ * 
+ * @throws Exception
+ */
+function sociosBorrar($socio)
+{
+    require_once(__DIR__ . "/../model/socio.php");
+    try {
+
+        // Tal vez no debería eliminarse el socio.
+        $query = sprintf("DELETE FROM socios WHERE socios.idSocio = %d", (int)$socio['idSocio']);
+        // En principio no sería necesario borrar un socio, sino cambiar su estado como inactivo o de baja.
+        // $query = sprintf("UPDATE socios SET estado = %d WHERE idSocio = %d", 0, SOCIO_ESTADO_BAJA);
+
+        $resultado = realizarQuery($query);
+
+        return $resultado;
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
+    }
+}

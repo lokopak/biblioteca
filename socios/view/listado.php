@@ -128,7 +128,13 @@
                     <td><?= date("d/m/Y", strtotime($socio["fechaNacimiento"])) ?></td>
                     <td>
                         <a href="/biblioteca/socios/editar.php?idSocio=<?= $socio["idSocio"] ?>"
-                            class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil fs-6"></i></a>
+                            class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-pencil fs-6"></i>
+                        </a>
+                        <a href="/biblioteca/socios/borrar.php?idSocio=<?= $socio["idSocio"] ?>"
+                            class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash fs-6"></i>
+                        </a>
                     </td>
                 </tr>
 
