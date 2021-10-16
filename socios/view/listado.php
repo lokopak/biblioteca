@@ -78,6 +78,12 @@
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
+
+                    <div class="col ms-auto">
+                        <a class="btn btn-success" href="/biblioteca/socios/crear.php"><i
+                                class="bi bi-plus-circle me-2"></i>Nuevo
+                            socio</a>
+                    </div>
                 </form>
             </div>
         </div>
