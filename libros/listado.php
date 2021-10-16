@@ -3,6 +3,8 @@
 require_once(__DIR__ . "/model/db.php");
 // Cargamos las funciones para recoger datos desde la Request.
 require_once(__DIR__ . "/../conexion/request.php");
+// Cargamos las funciones y constantes relativas a un libro.
+require_once(__DIR__ . "/../libros/model/libro.php");
 
 // Fijamos la página para el paginador y nos aseguramos de que se obtiene como valor entero.
 $pagina = (int) obtenerDesdeGet("pagina", 1);

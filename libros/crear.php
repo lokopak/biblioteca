@@ -46,6 +46,10 @@ if (esPOST()) {
         require(__DIR__ . "/view/creado.php");
         return;
     }
+    // De lo contrario
+    else {
+        agregarMensaje("No se ha podido agregadar el libro correctamete", "warning");
+    }
 }
 
 // En caso contrario, simplemente mostramos el form. Si hubiera algún error en los datos se podrían mostrar

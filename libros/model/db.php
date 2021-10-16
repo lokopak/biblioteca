@@ -29,16 +29,19 @@ function librosBuscarTodos($pagina, $limite, $ordenPor, $orden)
                         LEFT JOIN autor_libro ON libros.idLibro = autor_libro.idLibro
                         LEFT JOIN autores ON autores.idAutor = autor_libro.idAutor
                         GROUP BY libros.idLibro";
+        // NOTA: hay que aplicar un where para buscar libros con estado determinado.
 
         // Le agregamos un orden a la búsqueda.
         $query .= sprintf(" ORDER BY %s %s", $ordenPor, $orden);
 
-        // Calculamos el inicio de la página
-        $inicio = $limite * ($pagina - 1);
+        // Si hay datos de paginación, aplicamos el límite.
+        if (null !== $pagina && null !== $limite) {
+            // Calculamos el inicio de la página
+            $inicio = $limite * ($pagina - 1);
 
-        // Agregamos el límite a la query.
-        $query .= sprintf(" LIMIT %d, %d", $inicio, $limite);
-
+            // Agregamos el límite a la query.
+            $query .= sprintf(" LIMIT %d, %d", $inicio, $limite);
+        }
         // Enviamos la consulta
         $datos = realizarQuery($query);
 
@@ -215,6 +218,36 @@ function librosInsertarNuevo($titulo, $editorial, $genero, $isbn, $anhoPublicaci
 
             return $resultado;
         }
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
+    }
+    return false;
+}
+
+/**
+ * Permite actualizar directamente en estado de un libro
+ * directamente.
+ * 
+ * @param int $idLibro La id del libro a actualizar.
+ * @param int $estado El nuevo estado del libro.
+ * 
+ * @return boolean El resultado de la operación.
+ */
+function librosActualizarEstado($idLibro, $estado)
+{
+    try {
+        // La función sprintf("...", ...) devuelve un string formateado agregando los valores indicados en las posiciones correspondientes.
+        // Es más seguro, fiable y manejable que usar concatenaciones de strings.
+        $query = sprintf(
+            "UPDATE libros
+                    SET estado = %d
+                    WHERE idLibro = %d",
+            $estado,
+            $idLibro,
+        );
+
+        // Devolvemos el resultado de realizar la consulta en la base de datos.
+        return realizarQuery($query);
     } catch (Exception $e) {
         agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
     }

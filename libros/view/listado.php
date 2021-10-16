@@ -111,17 +111,35 @@ require(__DIR__ . "/../../view/head.php");
                     <th scope="col">ISBN</th>
                     <th scope="col">Año edición</th>
                     <th scope="col">Acción</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                     foreach ($resultado["elementos"] as $libro) {
+                        // Damos color a los estados.
+                        switch ($libro["estado"]) {
+                            case LIBRO_ESTADO_NO_DISPONIBLE:
+                                $estado = "secondary";
+                                break;
+                            case LIBRO_ESTADO_DISPONIBLE:
+                                $estado = "success";
+                                break;
+                            case LIBRO_ESTADO_DETERIORADO:
+                                $estado = "warning";
+                                break;
+                            case LIBRO_ESTADO_PRESTADO:
+                                $estado = "danger";
+                                break;
+                        }
                     ?>
                 <tr>
                     <th scope="row"><?php echo $libro["idLibro"] ?></th>
                     <td><a class="text-decoration-none"
                             href="/biblioteca/libros/mostrar.php?idLibro=<?= $libro['idLibro'] ?>"><?= $libro["titulo"] ?></a>
+                        <?php if (isset($estado)) { ?>
+                        <span
+                            class="ms-2 badge rounded-pill bg-<?= $estado ?>"><?= LIBRO_ESTADOS[$libro['estado']] ?></span>
+                        <?php } ?>
                     </td>
                     <td>
                         <?php
@@ -147,7 +165,7 @@ require(__DIR__ . "/../../view/head.php");
                     <td><?= $libro["anhoPublicacion"] ?></td>
                     <td>
                         <a href="/biblioteca/libros/editar.php?idLibro=<?= $libro["idLibro"] ?>"
-                            class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil fs-6"></i></a>
+                            class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></a>
                     </td>
                 </tr>
 
