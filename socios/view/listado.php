@@ -103,10 +103,10 @@
                     <th scope="row"><?php echo $socio["idSocio"] ?></th>
                     <td>
                         <a class="text-decoration-none"
-                            href="/bibliteca/socios/mostrar.php?idSocio=<?= $socio['idSocio'] ?>"><?= $socio["nombre"] ?></a>
+                            href="/biblioteca/socios/mostrar.php?idSocio=<?= $socio['idSocio'] ?>"><?= $socio["nombre"] ?></a>
                     </td>
                     <td><a class="text-decoration-none"
-                            href="/bibliteca/socios/mostrar.php?idSocio=<?= $socio['idSocio'] ?>">
+                            href="/biblioteca/socios/mostrar.php?idSocio=<?= $socio['idSocio'] ?>">
                             <?php
                                     if (isset($socio["apellidos"])) {
 
@@ -119,7 +119,7 @@
                     <td><?= $socio["direccion"] ?></td>
                     <td><?= $socio["telefono"] ?? "-" ?></td>
                     <td><?= $socio["email"] ?? "-" ?></td>
-                    <td><?= date("d/m/Y", strtotime($socio["fechaAlta"])) ?></td>
+                    <td><?= date("d/m/Y", strtotime($socio["fechaNacimiento"])) ?></td>
                     <td>
                         <a href="/biblioteca/socios/editar.php?idSocio=<?= $socio["idSocio"] ?>"
                             class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil fs-6"></i></a>
