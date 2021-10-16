@@ -27,6 +27,7 @@ CREATE TABLE socios (
     direccion varchar(50) NOT NULL,
     telefono varchar(12),
     email varchar(40),
+    fechaNacimiento date NOT NULL,
     fechaAlta date NOT NULL DEFAULT (CURRENT_DATE),
     estado tinyint(3),
     INDEX idx_nombre_apellido (nombre, apellidos),
