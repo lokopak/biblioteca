@@ -100,80 +100,89 @@ require(__DIR__ . "/../../view/head.php");
                 </form>
             </div>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Título</th>
-                    <th scope="col">Autor(es)</th>
-                    <th scope="col">Editorial</th>
-                    <th scope="col">Género</th>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Año edición</th>
-                    <th scope="col">Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($resultado["elementos"] as $libro) {
-                        // Damos color a los estados.
-                        switch ($libro["estado"]) {
-                            case LIBRO_ESTADO_NO_DISPONIBLE:
-                                $estado = "secondary";
-                                break;
-                            case LIBRO_ESTADO_DISPONIBLE:
-                                $estado = "success";
-                                break;
-                            case LIBRO_ESTADO_DETERIORADO:
-                                $estado = "warning";
-                                break;
-                            case LIBRO_ESTADO_PRESTADO:
-                                $estado = "danger";
-                                break;
-                        }
-                    ?>
-                <tr>
-                    <th scope="row"><?php echo $libro["idLibro"] ?></th>
-                    <td><a class="text-decoration-none"
-                            href="/biblioteca/libros/mostrar.php?idLibro=<?= $libro['idLibro'] ?>"><?= $libro["titulo"] ?></a>
-                        <?php if (isset($estado)) { ?>
-                        <span
-                            class="ms-2 badge rounded-pill bg-<?= $estado ?>"><?= LIBRO_ESTADOS[$libro['estado']] ?></span>
-                        <?php } ?>
-                    </td>
-                    <td>
+        <div class="row">
+            <div class="col-10 m-auto ">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Autor(es)</th>
+                            <th scope="col">Editorial</th>
+                            <th scope="col">Género</th>
+                            <th scope="col">ISBN</th>
+                            <th scope="col">Año edición</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <?php
-                                $autores = "";
-                                foreach ($libro["autores"] as $key => $autor) {
-                                    $autores .= '<a class="text-decoration-none"
-                                    href="/biblioteca/autores/mostrar.php?idAutor=' . $autor['idAutor'] . '">' . $autor["nombre"];
-                                    if (isset($autor["apellidos"])) {
-                                        $autores .= " " . $autor["apellidos"];
-                                    }
-                                    $autores .= "</a>";
-                                    if ($key >= 0 && $key < count($libro["autores"]) - 1) {
-                                        $autores .= "<br/>";
-                                    }
+                            foreach ($resultado["elementos"] as $libro) {
+                                // Damos color a los estados.
+                                switch ($libro["estado"]) {
+                                    case LIBRO_ESTADO_NO_DISPONIBLE:
+                                        $estado = "secondary";
+                                        break;
+                                    case LIBRO_ESTADO_DISPONIBLE:
+                                        $estado = "success";
+                                        break;
+                                    case LIBRO_ESTADO_DETERIORADO:
+                                        $estado = "warning";
+                                        break;
+                                    case LIBRO_ESTADO_PRESTADO:
+                                        $estado = "danger";
+                                        break;
                                 }
+                            ?>
+                        <tr>
+                            <th scope="row"><?php echo $libro["idLibro"] ?></th>
+                            <td><a class="text-decoration-none"
+                                    href="/biblioteca/libros/mostrar.php?idLibro=<?= $libro['idLibro'] ?>"><?= $libro["titulo"] ?></a>
+                            </td>
+                            <td>
+                                <?php
+                                        $autores = "";
+                                        foreach ($libro["autores"] as $key => $autor) {
+                                            $autores .= '<a class="text-decoration-none"
+                                    href="/biblioteca/autores/mostrar.php?idAutor=' . $autor['idAutor'] . '">' . $autor["nombre"];
+                                            if (isset($autor["apellidos"])) {
+                                                $autores .= " " . $autor["apellidos"];
+                                            }
+                                            $autores .= "</a>";
+                                            if ($key >= 0 && $key < count($libro["autores"]) - 1) {
+                                                $autores .= "<br/>";
+                                            }
+                                        }
 
-                                echo $autores;
-                                ?>
-                    </td>
-                    <td><?= $libro["editorial"] ?></td>
-                    <td><?= $libro["genero"] ?></td>
-                    <td><?= $libro["isbn"] ?></td>
-                    <td><?= $libro["anhoPublicacion"] ?></td>
-                    <td>
-                        <a href="/biblioteca/libros/editar.php?idLibro=<?= $libro["idLibro"] ?>"
-                            class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></a>
-                    </td>
-                </tr>
+                                        echo $autores;
+                                        ?>
+                            </td>
+                            <td><?= $libro["editorial"] ?></td>
+                            <td><?= $libro["genero"] ?></td>
+                            <td><?= $libro["isbn"] ?></td>
+                            <td><?= $libro["anhoPublicacion"] ?></td>
+                            <td>
+                                <?php if (isset($estado)) { ?>
+                                <span
+                                    class="ms-2 badge rounded-pill bg-<?= $estado ?>"><?= LIBRO_ESTADOS[$libro['estado']] ?></span>
+                                <?php } ?>
+                            </td>
+                            <td>
+                                <a href="/biblioteca/libros/editar.php?idLibro=<?= $libro["idLibro"] ?>"
+                                    class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></a>
+                            </td>
+                        </tr>
 
-                <?php
-                    }
-                    ?>
-            </tbody>
-        </table>
+                        <?php
+                            }
+                            ?>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
 
         <?php
 
