@@ -118,3 +118,55 @@ function sociosBuscarUno($idSocio)
     // Se ha producido un error, devolvemos un null.
     return null;
 }
+
+/**
+ * Actualiza un socio con los nuevos datos
+ * recividos.
+ * 
+ * @param $nombre El nuevo nombre del socio
+ * @param $apellidos Los nuevos apellidos del socio
+ * @param $direccion La nueva direccion del socio
+ * @param $fechaNacimiento La nueva fecha de nacimiento del socio.
+ * @param $idSocio La id correspondiente al socio que se desea actualizar.
+ * 
+ * @return boolean El resultado de la operación
+ * 
+ * @throws Exception 
+ */
+function sociosActualizar($nombre, $apellidos, $direccion, $fechaNacimiento, $DNI, $telefono, $email, $estado, $idSocio)
+{
+    try {
+
+        $query = sprintf(
+            "UPDATE socios SET
+            DNI = '%s',
+            nombre = '%s',
+            apellidos = '%s',
+            direccion = '%s',
+            fechaNacimiento = '%s',
+            telefono = '%s',
+            email = '%s',
+            estado = %d
+            WHERE idSocio = %d",
+            $DNI,
+            $nombre,
+            $apellidos,
+            $direccion,
+            $fechaNacimiento,
+            $telefono,
+            $email,
+            $estado,
+            $idSocio
+        );
+        // Enviamos la query
+        $resultado = realizarQuery($query);
+
+        // Si se ha obtenido un resultado
+        if ($resultado) {
+            return $resultado;
+        }
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
+    }
+    return false;
+}
