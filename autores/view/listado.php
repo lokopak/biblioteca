@@ -12,7 +12,7 @@
                     <th scope="col">Apellidos</th>
                     <th scope="col">Nacionalidad</th>
                     <th scope="col">Fecha de nacimiento</th>
-                    <th></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +40,8 @@
                     <td>
                         <a href="/biblioteca/autores/editar.php?idAutor=<?= $autor["idAutor"] ?>"
                             class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil fs-6"></i></a>
+                        <a href="/biblioteca/autores/borrar.php?idAutor=<?= $autor["idAutor"] ?>"
+                            class="btn btn-danger btn-sm"><i class="bi bi-trash fs-6"></i></a>
                     </td>
                 </tr>
 
