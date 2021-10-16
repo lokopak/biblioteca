@@ -31,10 +31,10 @@ if (esPost()) {
     $fechaInicio = obtenerDesdePost("fechaInicio", null);
 
     // Obtenemos la id del libro que envá el form.
-    $idSocio = (int) obtenerDesdePost("libro", null);
+    $idSocio = (int) obtenerDesdePost("socio", null);
 
     // Obtenemos la id del socio que envá el form.
-    $idLibro = (int) obtenerDesdePost("socio", null);
+    $idLibro = (int) obtenerDesdePost("libro", null);
 
     // Si falta alguna de las variables necesarias para crear el nuevo préstamo, enviamos un error.
     if ($idLibro === null || $idSocio === NULL || $fechaInicio === NULL) {
