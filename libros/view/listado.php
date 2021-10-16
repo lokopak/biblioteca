@@ -1,6 +1,7 @@
 <?php
 // Mostramos el contenido html del head de la página
 require(__DIR__ . "/../../view/head.php");
+
 ?>
 
 <div class="row">
@@ -85,11 +86,15 @@ require(__DIR__ . "/../../view/head.php");
                                 ?>
                         </select>
                     </div>
-
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Actualizar</button>
-                        <a type="button " class="btn btn-primary" href="/biblioteca/libros/crear.php">Agregar nuevo
-                            libro</a>
+                    </div>
+
+                    <div class="col ms-auto me-5">
+                        <a type="button " class="btn btn-success" href="/biblioteca/libros/crear.php">
+                            <i class="bi bi-plus-circle me-2"></i>
+                            Agregar nuevo libro
+                        </a>
 
                     </div>
                 </form>

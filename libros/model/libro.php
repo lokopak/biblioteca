@@ -1,5 +1,11 @@
 <?php
 
+const LIBRO_ESTADO_DISPONIBLE = 1;
+
+const LIBRO_ESTADOS = [
+    LIBRO_ESTADO_DISPONIBLE => "Disponble",
+];
+
 // Listado de generos literarios disponibles en la biblioteca.
 const GENEROS_LITERARIOS = [
     1 => "Acción",

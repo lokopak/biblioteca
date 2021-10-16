@@ -154,3 +154,69 @@ function librosBuscarUno($idLibro)
     // Se ha producido un error, devolvemos un null.
     return null;
 }
+
+
+/**
+ * Inserta un nuevo libro en la tabla de libros.
+ * 
+ * @param string $titulo El título del libro
+ * @param string $editorial La editorial del libro
+ * @param int $genero El género del libro
+ * @param string $isbn El ISBN del libro.
+ * @param int $anhoPublicacion El año de publicación del libro.
+ * @param int $fechaAlta Fecha en la que se agrega el libro.
+ * @param int[] $autores Array con las idAutor de los autores del libro.
+ * 
+ * @return mixed El resultado de la operación.
+ *      Puede ser:
+ *          - Entero (int) en caso de insertarse correctamente.
+ *            El entero corresponde a la idLibro asignada al nuevo libro.
+ *          - null en caso de fallo
+ * 
+ * @throws Exception
+ */
+function librosInsertarNuevo($titulo, $editorial, $genero, $isbn, $anhoPublicacion, $fechaAlta, $autores)
+{
+    try {
+
+        $query = sprintf(
+            "INSERT INTO libros (titulo, editorial, genero, isbn, anhoPublicacion , fechaAlta)
+                VALUES ('%s', '%s', '%s', '%s', %d, '%s')",
+            $titulo,
+            $editorial,
+            $genero,
+            $isbn,
+            $anhoPublicacion,
+            $fechaAlta
+        );
+
+        // Enviamos la query
+        $resultado = realizarQuery($query);
+
+        // Si se ha insertado correctamente, se recibe la id del nuevo libro, por lo tanto, es el turno de asignar los autores.
+        if ($resultado) {
+            // Si el array de idAutor no está vació, insertamos todos los valores.
+            if (!empty($autores)) {
+                // Creamos el query.
+                $query = "INSERT INTO autor_libro (idAutor, idLibro) VALUES ";
+                // Agregamos los valores de cada uno de los autores en la query.
+
+                for ($i = 0; $i < count($autores); $i++) {
+                    // $resutlado es la idLibro devuelta al crear el nuevo libro por la base de datos.
+                    $query .= sprintf("(%d, %d)", $autores[$i], $resultado);
+                    // Si no es el último elemento, agregamos una coma al final
+                    if ($i < count($autores) - 1) {
+                        $query .= ", ";
+                    }
+                }
+
+                $resultado = realizarQuery($query);
+            }
+
+            return $resultado;
+        }
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
+    }
+    return false;
+}
