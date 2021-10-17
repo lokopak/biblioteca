@@ -25,12 +25,6 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="/biblioteca/libros/ver_listado.php"
-                            class="btn btn-outline-naranja bg-white text-uppercase w-100 py-3">
-                            <i class="bi bi-grid me-2 fs-1"></i><br>Mostrar socios
-                        </a>
-                    </div>
-                    <div class="col">
                         <a href="/biblioteca/socios/crear.php"
                             class="btn btn-outline-naranja bg-white text-uppercase w-100 py-3">
                             <i class="bi bi-plus-circle fs-1"></i><br>Alta nuevo socio

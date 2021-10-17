@@ -31,6 +31,10 @@
                                 <i class="bi bi-list me-1"></i>Listado de autores</a>
                         </li>
                         <li>
+                            <a class="dropdown-item" href="/biblioteca/autores/ver_listado.php">
+                                <i class="bi bi-grid me-1"></i>Mostrar autores</a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" href="/biblioteca/autores/crear.php">
                                 <i class="bi bi-plus me-1"></i>Agregar nuevo autor
                             </a>
@@ -47,6 +51,10 @@
                             <a class="dropdown-item" href="/biblioteca/libros/listado.php">
                                 <i class="bi bi-list me-1"></i>Listado de libros
                             </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/biblioteca/libros/ver_listado.php">
+                                <i class="bi bi-grid me-1"></i>Mostrar libros</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="/biblioteca/libros/crear.php">
