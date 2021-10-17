@@ -9,13 +9,48 @@ require_once(__DIR__ . "/../../conexion/conexion.php");
 // Cargamos el archivo necesario para paginar los elementos encontrados.
 require_once(__DIR__ . "/../../paginador/paginador.php");
 
-// Unos posibles estados en los préstamos.
-$estadosPrestamos = [
-    "devuelto",   // 0 =>  El préstamo ha sido devuelto sin ningúna incidencia.
-    "activo",     // 1 =>  El préstamo está activo
-    "retrasado",  // 2 =>  El préstamo está activo y con retraso en la entrega.
-    "defectuoso"  // 3 =>  El préstamo ha sido entregado pero con defectos en el libro.
-];
+/**
+ * Revisa todos los préstamos listados y comprueba si se encuentran fuera de plazao.
+ * De ser así, actualiza su estado.
+ * 
+ * @param array &$prestamos Los préstamos a revisar.
+ *              NOTA: El símbolo & delate del nombre del parámetro, nos permite modificarla
+ *                    dentro del cuerpo de la función directamente.
+ * 
+ * @return boolean Indica si se ha encontrado algún préstamo fuera de plazo
+ */
+function comprobarFueraDePlazo(&$prestamos)
+{
+    // Almacenaremos aquí todas las ids de los préstamos que estén fuera de plazo.
+    $fueraDePlazo = [];
+    foreach ($prestamos as $key => $prestamo) {
+        // Sólo nos interesan los préstamos que aún estén activos.
+        if ((int)$prestamo["estado"] !== PRESTAMO_ESTADO_ACTIVO) {
+            continue;
+        }
+        // Si etá fuera de plazo.
+        if (strtotime(date("Y-m-d", time())) > strtotime($prestamo["fechaDevolucion"])) {
+            // Agregamos la idPrestamo al array
+            $fueraDePlazo[] = $prestamo["idPrestamo"];
+            // Y actualizamos el estado para que el cambio se pueda ver ya en la siguiente impresión
+            $prestamos[$key]["estado"] = PRESTAMO_ESTADO_FUERA_PLAZO;
+        }
+    }
+
+    // Si nos hemos encontrado alguno fuera de plazo.
+    if (count($fueraDePlazo) > 0) {
+        // Convertimos el array en una cadena de strings en la que los elementos están separados por comas.
+        // [1, 2, 3, 4] => "1,2,3,4"
+        // Esto es obligatorio para poder usarlo en el IN de la query.
+        $idPrestamos = implode(",", $fueraDePlazo);
+        $query = sprintf("UPDATE prestamos SET estado = %d WHERE idPrestamo IN(%s)", PRESTAMO_ESTADO_FUERA_PLAZO, $idPrestamos);
+
+        return realizarQuery($query);
+    }
+
+    // De lo contrario, devolvemos false.
+    return false;
+}
 
 /**
  * Realiza una consulta a la base de datos
@@ -95,6 +130,9 @@ function prestamoBuscarTodos($pagina, $limite, $ordenPor, $orden, $estado)
                     // Si no ha fallado, recogemos el resutlado. Puesto que mysqli_fetch_row devuelve un array, recogemos el indice [0] de este.
                     $total = (int) mysqli_fetch_row($total)[0];
                 }
+
+                // Aprovechamos que se van a imprimir los préstamos para comprobar que están fuera de plazo  y actualizar la base de datos?
+                comprobarFueraDePlazo($prestamos);
 
                 // Devolvemos el array de autores.
                 return paginar($pagina, $limite, $prestamos, $total);
