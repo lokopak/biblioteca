@@ -35,3 +35,128 @@ body {
 }
 
 
+/** Clolores de fondo y texto y bordes carácterísticos de la aplicación */
+
+.bg-verde {
+    background-color: #007d1c !important;
+}
+
+.bg-naranja {
+    background-color: #ff7c00 !important;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.disabled .bg-naranja,
+.bg-naranja.disabled {
+    /** Cuando un elemento esté deshabilitado, lo pintamos un poco más claro. */
+    background-color: #ffb773 !important;
+}
+
+.bg-verde .disabled {
+    background-color: #30be4f !important;
+}
+
+.texto-verde {
+    color: #007d1c !important;
+}
+
+.texto-naranja {
+    color: #ff7c00 !important;
+}
+
+.borde-verde {
+    border-color: #007d1c !important;
+}
+
+.borde-naranja {
+    border-color: #ff7c00 !important;
+}
+
+
+/** Algunos colores para los botones */
+
+.btn-outline-naranja {
+    border-color: #ff7c00 !important;
+    color: #ff7c00 !important;
+}
+
+.btn-naranja,
+.btn-outline-naranja:hover {
+    background-color: #ff7c00 !important;
+    color: #ffffff !important;
+}
+
+.btn-naranja:hover {
+    border-color: #ff7c00 !important;
+    background-color: #ffffff !important;
+    color: #ff7c00 !important;
+}
+
+.disabled .btn-naranja {}
+
+.btn-outline-verde {
+    border-color: #007d1c !important;
+    color: #007d1c !important;
+}
+
+.btn-verde,
+.btn-outline-verde:hover {
+    background-color: #007d1c !important;
+    color: #ffffff !important;
+}
+
+.btn-verde:hover {
+    border-color: #007d1c !important;
+    background-color: #ffffff !important;
+    color: #007d1c !important;
+}
+
+.btn.bg-naranja:hover,
+.pagination .disabled .btn-naranja {
+    background-color: #ff9d40 !important;
+}
+
+.btn-amarillo {
+    background-color: yellow !important;
+    color: #ffffff !important;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.morado {
+    background-color: purple;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.natillas {
+    background-color: #a8ec20;
+}
+
+.marron {
+    background-color: brown;
+}
+
+.rojo2 {
+    background-color: #f50212;
+}
+
+.alto {
+    height: 500px;
+}
+
+.octavio {
+    border-radius: 5%;
+}
+
+.barra-herramientas {
+    -webkit-box-shadow: 0px 5px 47px -5px rgba(0, 0, 0, 0.42);
+    box-shadow: 0px 5px 47px -5px rgba(0, 0, 0, 0.42);
+}
