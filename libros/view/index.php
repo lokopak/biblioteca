@@ -11,21 +11,35 @@
  */
 ?>
 
-
 <div class="row">
-    <div class="col-12 my-4 justify-content-center">
-
-        <ul class="list-group w-25 m-auto">
-            <li class="list-group-item  mb-2 p-0">
-                <a href="/biblioteca/libros/listado.php" class="btn btn-outline-primary w-100 text-uppercase py-3">
-                    <i class="bi bi-book me-2 fs-1"></i><br>Listado de libros
-                </a>
-            </li>
-            <li class="list-group-item  mb-2 p-0">
-                <a href="/biblioteca/libros/crear.php" class="btn btn-outline-primary w-100 text-uppercase py-3">
-                    <i class="bi bi-plus me-2 fs-1"></i><br>Agregar nuevo libro
-                </a>
-            </li>
-        </ul>
+    <div class="col-12 col-md-10 col-xl-6 mx-md-auto my-4">
+        <div class="card border-dark bg-transparent ">
+            <div class="card-title bg-naranja p-3 mb-0 text-center rounded-top">
+                <h1 class="mb-0"><i class="bi bi-book me-2 fs-1"></i>Libros</h1>
+            </div>
+            <div class="card-body bg-white rounded-bottom">
+                <div class="row row-cols-2 g-2 g-lg-1 text-center">
+                    <div class="col">
+                        <a href="/biblioteca/libros/listado.php"
+                            class="btn btn-outline-naranja bg-white text-uppercase w-100 py-3">
+                            <i class="bi bi-list me-2 fs-1"></i><br>Listado de libros
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/biblioteca/libros/ver_listado.php"
+                            class="btn btn-outline-naranja bg-white text-uppercase w-100 py-3">
+                            <i class="bi bi-grid me-2 fs-1"></i><br>Mostrar libros
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/biblioteca/libros/crear.php"
+                            class="btn btn-outline-naranja bg-white text-uppercase w-100 py-3">
+                            <i class="bi bi-plus-circle me-2 fs-1"></i><br>Agregar nuevo libro
+                        </a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
