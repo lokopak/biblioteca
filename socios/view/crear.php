@@ -51,7 +51,7 @@
                             <label for="email" class="form-label">
                                 <i class="bi bi-at me-2"></i>E-mail
                             </label>
-                            <input class="form-control" type="text" name="email">
+                            <input class="form-control" type="email" name="email">
                         </div>
                     </div>
                     <button type="submit" class="btn mt-3 bg-naranja"><i class="bi bi-save me-2"></i>Guardar</button>
