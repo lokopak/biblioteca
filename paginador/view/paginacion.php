@@ -12,7 +12,7 @@
 ?>
 
 <nav aria-label="Paginación">
-    <ul class="pagination justify-content-center">
+    <ul class="pagination justify-content-center ">
         <?php
         if ($datos["pagina"] > 1) {
         ?>
@@ -25,7 +25,7 @@
             <?php
         }
             ?>
-            <a href="<?= $link ?>&pagina=<?= $datos["pagina"] - 1 ?>" class="page-link">Anterior</a>
+            <a href="<?= $link ?>&pagina=<?= $datos["pagina"] - 1 ?>" class="page-link  btn-naranja">Anterior</a>
         </li>
         <?php
             for ($i = 1; $i <= $numeroPaginas; $i++) {
@@ -33,13 +33,15 @@
                 if ($i === $datos["pagina"]) {
 
             ?>
-        <li class="page-item disabled"><a class="page-link" href="<?= $link ?>&pagina=<?= $i ?>"><?= $i ?></a></li>
+        <li class="page-item disabled"><a class="page-link  btn-naranja"
+                href="<?= $link ?>&pagina=<?= $i ?>"><?= $i ?></a></li>
         <?php
                 } else {
                 ?>
 
 
-        <li class="page-item"><a class="page-link" href="<?= $link ?>&pagina=<?= $i ?>"><?= $i ?></a></li>
+        <li class="page-item"><a class="page-link btn-naranja" href="<?= $link ?>&pagina=<?= $i ?>"><?= $i ?></a>
+        </li>
         <?php
                 }
             }
@@ -54,7 +56,7 @@
             <?php
             }
                 ?>
-            <a class="page-link" href="<?= $link ?>&pagina=<?= $datos["pagina"] + 1 ?>">Siguiente</a>
+            <a class="page-link  btn-naranja" href="<?= $link ?>&pagina=<?= $datos["pagina"] + 1 ?>">Siguiente</a>
         </li>
     </ul>
 </nav>
