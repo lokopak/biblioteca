@@ -13,29 +13,40 @@
 ?>
 
 <div class="row">
-    <div class="col-12 my-4 justify-content-center">
+    <div class="col-12 col-xl-6 mx-md-auto my-4">
+        <div class="card border-dark bg-transparent">
+            <div class="card-title bg-naranja p-3 mb-0 text-center rounded-top">
+                <h1 class="mb-0"><i class="bi bi-book me-2 fs-1"></i>Bienvenido</h1>
+            </div>
+            <div class="card-body bg-naranja">
 
-        <ul class="list-group w-25 m-auto px-5">
-            <li class="list-group-item  mb-2 p-0">
-                <a href="/biblioteca/autores/index.php" class="btn btn-outline-primary w-100 text-uppercase">
-                    <i class="bi bi-vector-pen me-2 fs-1"></i><br />Autores
-                </a>
-            </li>
-            <li class="list-group-item  mb-2 p-0">
-                <a href="/biblioteca/libros/index.php" class="btn btn-outline-primary w-100 text-uppercase">
-                    <i class="bi bi-book me-2 fs-1"></i><br />Libros
-                </a>
-            </li>
-            <li class="list-group-item mb-2 p-0">
-                <a href="/biblioteca/socios/index.php" class="btn btn-outline-primary w-100 text-uppercase">
-                    <i class="bi bi-people me-2 fs-1"></i><br />Socios
-                </a>
-            </li>
-            <li class="list-group-item  mb-2 p-0">
-                <a href="/biblioteca/prestamos/index.php" class="btn btn-outline-primary w-100 text-uppercase">
-                    <i class="bi bi-box-arrow-right me-2 fs-1"></i><br />Prestamos
-                </a>
-            </li>
-        </ul>
+                <div class="row row-cols-1 row-cols-sm-2 gx-3 px-5">
+                    <div class="col mb-2 p-0">
+                        <a href="/biblioteca/autores/index.php"
+                            class="btn btn-outline-naranja bg-white w-100 text-uppercase py-5">
+                            <i class="bi bi-vector-pen fs-1"></i><br />Autores
+                        </a>
+                    </div>
+                    <div class="col mb-2 p-0">
+                        <a href="/biblioteca/libros/index.php"
+                            class="btn btn-outline-naranja bg-white w-100 text-uppercase py-5">
+                            <i class="bi bi-book fs-1"></i><br />Libros
+                        </a>
+                    </div>
+                    <div class="col mb-2 p-0">
+                        <a href="/biblioteca/socios/index.php"
+                            class="btn btn-outline-naranja bg-white w-100 text-uppercase py-5">
+                            <i class="bi bi-people fs-1"></i><br />Socios
+                        </a>
+                    </div>
+                    <div class="col mb-2 p-0">
+                        <a href="/biblioteca/prestamos/index.php"
+                            class="btn btn-outline-naranja bg-white w-100 text-uppercase py-5">
+                            <i class="bi bi-box-arrow-right fs-1"></i><br />Prestamos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
