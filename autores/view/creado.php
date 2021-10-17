@@ -23,19 +23,19 @@
                 <div class="row row-cols-1 row-cols-sm-3 g-3 px-1">
                     <div class="col">
                         <a href="/biblioteca/autores/listado.php" class="btn btn-naranja w-100 text-uppercase py-3">
-                            <i class="bi bi-vector-pen fs-1"></i><br>Listado de autores
+                            <i class="bi bi-list fs-1"></i><br>Listado de autores
                         </a>
                         </li>
                     </div>
                     <div class="col">
                         <a href="/biblioteca/autores/crear.php" class="btn btn-naranja w-100 text-uppercase py-3">
-                            <i class="bi bi-book fs-1"></i><br>Crear otro autor
+                            <i class="bi bi-plus-circle fs-1"></i><br>Crear otro autor
                         </a>
                     </div>
                     <div class="col">
                         <a href="/biblioteca/autores/editar.php?idAutor=<?= $idAutor ?>"
                             class="btn btn-naranja w-100 text-uppercase py-3">
-                            <i class="bi bi-book fs-1"></i><br>Editar el autor
+                            <i class="bi bi-pencil fs-1"></i><br>Editar el autor
                         </a>
                     </div>
                 </div>

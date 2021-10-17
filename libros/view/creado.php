@@ -11,35 +11,35 @@
  */
 ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 my-4 justify-content-center">
-            <div class="alert alert-success text-center w-50 m-auto" role="alert">
-                <i class="bi bi-emoji-sunglasses fs-1"></i><br>
-                <h4 class="alert-heading">¡ Listo !</h4>
-                <p>El libro ha sido agregado correctamente.</p>
+<div class="row">
+    <div class="col-12 col-xl-6 mx-md-auto my-4">
+        <div class="card border-dark bg-transparent">
+            <div class="card-header bg-naranja texto-verde p-3 mb-0 text-center rounded-top">
+                <h4 class="card-title"><i class="bi bi-emoji-sunglasses fs-1"></i><br>¡ Listo !</h4>
+                <h5 class="card-title texto-white">El libro ha sido agregado correctamente.</h5>
             </div>
-        </div>
-        <div class="col-12 my-4 justify-content-center">
+            <div class="card-body bg-white">
 
-            <ul class="list-group w-25 m-auto">
-                <li class="list-group-item mb-2 p-0">
-                    <a href="/biblioteca/libros/listado.php" class="btn btn-outline-primary w-100 text-uppercase py-3">
-                        <i class="bi bi-book me-2 fs-1"></i><br>Listado de libros
-                    </a>
-                </li>
-                <li class="list-group-item mb-2 p-0">
-                    <a href="/biblioteca/libros/crear.php" class="btn btn-outline-primary w-100 text-uppercase py-3">
-                        <i class="bi bi-plus-circle me-2 fs-1"></i><br>Agregar otro libro
-                    </a>
-                </li>
-                <li class="list-group-item mb-2 p-0">
-                    <a href="/biblioteca/libros/editar.php?idLibro=<?= $idLibro ?>"
-                        class="btn btn-outline-primary w-100 text-uppercase">
-                        <i class="bi bi-pencil-square me-2 fs-1"></i><br>Editar el libro
-                    </a>
-                </li>
-            </ul>
+                <div class="row row-cols-1 row-cols-sm-3 g-3 px-1">
+                    <div class="col">
+                        <a href="/biblioteca/libros/listado.php" class="btn btn-naranja w-100 text-uppercase py-3">
+                            <i class="bi bi-list fs-1"></i><br>Listado de libros
+                        </a>
+                        </li>
+                    </div>
+                    <div class="col">
+                        <a href="/biblioteca/libros/crear.php" class="btn btn-naranja w-100 text-uppercase py-3">
+                            <i class="bi bi-plus-circle fs-1"></i><br>Nuevo libro
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/biblioteca/libros/editar.php?idAutor=<?= $idAutor ?>"
+                            class="btn btn-naranja w-100 text-uppercase py-3">
+                            <i class="bi bi-pencil fs-1"></i><br>Editar el libro
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
