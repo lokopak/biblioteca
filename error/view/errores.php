@@ -10,19 +10,30 @@
 ?>
 
 <div class="row justify-content-center">
-    <div class="col-12 mb-3">
+    <div class="col-12 col-sm-10 col-xl-6 mx-md-auto my-4">
         <?php
-        // Recorremos el array de errores para mostrarlos.
-        foreach ($errores as $error) {
+        if (isset($errores) && !empty($errores)) {
+            // Recorremos el array de errores para mostrarlos.
+            foreach ($errores as $error) {
         ?>
-        <div class="card text-white bg-danger mb-3 w-75 m-auto">
-            <div class="card-header"><?= $error["tipo"] ?></div>
-            <div class="card-body">
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white text-center">
+                <h1 class="card-title"><i class="bi bi-exclamation-triangle me-3"></i><?= $error["tipo"] ?></h1>
+            </div>
+            <div class="card-body bg-white">
+                <div class="w-100 text-center">
+                    <span class="card-title"><i class="bi bi-exclamation-octagon fs-1 text-danger"></i></span>
+                </div>
                 <p class="card-text"><?= $error["mensaje"] ?></p>
             </div>
         </div>
         <?php
+            }
         }
         ?>
     </div>
 </div>
+
+<?php
+
+require_once(dirname(__FILE__) . "/../../view/footer.php");
