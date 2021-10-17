@@ -1,4 +1,6 @@
 <?php
+// Mostramos el contenido html del head
+require_once(__DIR__ . "/../view/head.php");
 // Cargamos el archivo necesario para manejar la tabla de autores.
 require_once(__DIR__ . "/model/db.php");
 // Cargamos las funciones para recoger datos desde la Request.

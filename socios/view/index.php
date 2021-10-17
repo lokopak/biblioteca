@@ -21,7 +21,7 @@
                     <div class="col">
                         <a href="/biblioteca/socios/listado.php"
                             class="btn btn-outline-naranja bg-white text-uppercase w-100 py-3">
-                            <i class="bi bi-people fs-1"></i><br>Listado de socios
+                            <i class="bi bi-list fs-1"></i><br>Listado de socios
                         </a>
                     </div>
                     <div class="col">

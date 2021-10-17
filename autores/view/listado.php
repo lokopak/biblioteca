@@ -14,7 +14,7 @@
                             <div class="col ms-auto me-5">
                                 <a class="btn btn-verde bg-white" href="/biblioteca/autores/crear.php">
                                     <i class="bi bi-vector-pen me-2"></i>
-                                    Agregar nuevo autor
+                                    Nuevo autor
                                 </a>
                             </div>
                         </div>
