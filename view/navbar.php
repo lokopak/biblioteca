@@ -11,7 +11,7 @@
  * De esta forma evitamos posibles fallos en la navegación.
  */
 ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-verde fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/biblioteca/index.php"><i class="bi bi-book-half me-3"></i>Biblioteca Laboris</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenidoDelTopnavbar"

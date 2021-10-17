@@ -33,6 +33,7 @@ require_once(__DIR__ . "/../error/error.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/biblioteca/assets/css/colores.css">
 </head>
 
 <body class="pt-5">
@@ -42,7 +43,7 @@ require_once(__DIR__ . "/../error/error.php");
     require_once("navbar.php");
     ?>
     <!-- Contenedor principal -->
-    <div class="container-fluid mt-5 py-3 min-vh-100">
+    <div class="container-fluid mt-5 pt-3 min-vh-100">
 
         <?php
         // Si se ha producido algún error grave durante la ejecución de la aplicación, mostramos una página
