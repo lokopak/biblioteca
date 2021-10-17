@@ -39,7 +39,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="/biblioteca/prestamos/ticket.php?idPrestamo=<?= $idPrestamo ?>"
+                        <a target="_blank" href="/biblioteca/prestamos/ticket.php?idPrestamo=<?= $idPrestamo ?>"
                             class="btn btn-naranja w-100 text-uppercase py-3">
                             <i class="bi bi-file-earmark-pdf fs-1"></i><br>Ticekt
                         </a>

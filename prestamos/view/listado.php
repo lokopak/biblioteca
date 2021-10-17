@@ -169,7 +169,8 @@
                                     class="btn btn-outline-success btn-sm" title="Devolver">
                                     <i class="bi bi-box-arrow-left fs-6"></i>
                                 </a>
-                                <a href="/biblioteca/prestamos/devolverlibro.php?idPrestamo=<?= $prestamo["idPrestamo"] ?>&estado=<?= PRESTAMO_ESTADO_DEVUELTO ?>"
+                                <a target="_blank"
+                                    href="/biblioteca/prestamos/ticket.php?idPrestamo=<?= $prestamo["idPrestamo"] ?>"
                                     class="btn btn-naranja btn-sm" title="Generar ticket">
                                     <i class="bi bi-file-earmark-pdf fs-6"></i>
                                 </a>
