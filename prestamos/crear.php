@@ -21,7 +21,6 @@ require_once(__DIR__ . "/../conexion/request.php");
 // Ejecutamos el código para agregar el nuevo préstamo en la base de datos.
 if (esPost()) {
     // Obtenemos todos los datos necesarios desde la petición POST
-    // Obtenemos todos los datos necesarios desde la petición POST
 
     // Con esto nos aseguramos de que el valor lo recibimos correctamento o bien le damos un valor nulo para indicar lo contrario.
     // NOTA: es recomendable no usar mucho los arrays $_REQUEST, $_POST y $_GET para evitar que por error se modifiquen esos datos
@@ -49,7 +48,6 @@ if (esPost()) {
         $libro = librosBuscarUno($idLibro);
         // Comprobamos que el socio existe.
         $socio = sociosBuscarUno($idSocio);
-        print_r($libro["estado"]);
 
         // Nos aseguramos de que el libro existe y está disponible.
         // NOTA: El uso de constantes como LIBRO_ESTADO_DISPONIBLE nos facilita el uso de valores que se usan en distintas partes
