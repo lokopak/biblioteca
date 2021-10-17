@@ -176,6 +176,7 @@ function librosBuscarUno($idLibro)
  * @param int $anhoPublicacion El año de publicación del libro.
  * @param int $fechaAlta Fecha en la que se agrega el libro.
  * @param int[] $autores Array con las idAutor de los autores del libro.
+ * @param int $estado El estado del libro.
  * 
  * @return mixed El resultado de la operación.
  *      Puede ser:
@@ -185,19 +186,20 @@ function librosBuscarUno($idLibro)
  * 
  * @throws Exception
  */
-function librosInsertarNuevo($titulo, $editorial, $genero, $isbn, $anhoPublicacion, $fechaAlta, $autores)
+function librosInsertarNuevo($titulo, $editorial, $genero, $isbn, $anhoPublicacion, $fechaAlta, $autores, $estado)
 {
     try {
 
         $query = sprintf(
-            "INSERT INTO libros (titulo, editorial, genero, isbn, anhoPublicacion , fechaAlta)
-                VALUES ('%s', '%s', '%s', '%s', %d, '%s')",
+            "INSERT INTO libros (titulo, editorial, genero, isbn, anhoPublicacion , fechaAlta, estado)
+                VALUES ('%s', '%s', '%s', '%s', %d, '%s', %d)",
             $titulo,
             $editorial,
             $genero,
             $isbn,
             $anhoPublicacion,
-            $fechaAlta
+            $fechaAlta,
+            $estado
         );
 
         // Enviamos la query

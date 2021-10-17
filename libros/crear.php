@@ -38,7 +38,7 @@ if (esPOST()) {
 
     // Agregamos a los datos la fecha de hoy como fecha de alta.
     $fechaAlta = date("Y/m/d", time());
-    $resultado = librosInsertarNuevo($titulo, $editorial, $genero, $isbn, (int)$anhoPublicacion, $fechaAlta, $autores);
+    $resultado = librosInsertarNuevo($titulo, $editorial, $genero, $isbn, (int)$anhoPublicacion, $fechaAlta, $autores, (int)$estado);
 
     // Si se ha insertado correctamente...
     if ($resultado) {
