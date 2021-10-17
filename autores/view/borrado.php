@@ -10,8 +10,6 @@
  * De esta forma evitamos posibles fallos en la navegación.
  */
 ?>
-
-
 <div class="row">
     <div class="col-12 col-xl-6 mx-md-auto my-4">
         <div class="card border-dark bg-transparent">
@@ -23,7 +21,13 @@
                 <div class="row row-cols-1 row-cols-sm-3 g-3 px-1">
                     <div class="col">
                         <a href="/biblioteca/autores/listado.php" class="btn btn-naranja w-100 text-uppercase py-3">
-                            <i class="bi bi-vector-pen fs-1"></i><br>Listado de autores
+                            <i class="bi bi-list fs-1"></i><br>Listado de autores
+                        </a>
+                        </li>
+                    </div>
+                    <div class="col">
+                        <a href="/biblioteca/autores/ver_listado.php" class="btn btn-naranja w-100 text-uppercase py-3">
+                            <i class="bi bi-grid fs-1"></i><br>Mostrar autores
                         </a>
                         </li>
                     </div>
