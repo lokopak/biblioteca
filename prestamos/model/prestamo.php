@@ -56,6 +56,12 @@ function rellenarPrestamo($datos, &$prestamo = null)
     // EN EL ARRAY CON LOS DATOS.
 
     // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
+    if (isset($datos["idSocio"])) {
+        // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
+        $prestamo["idSocio"] = (int)$datos["idSocio"];
+    }
+
+    // Con este if comprobamos que el dato correspondiente viene dentro del array y que no son iguales
     if (isset($datos["idLibro"])) {
         // Con el refundimiento (int) nos aseguramos de que el valor almacenado es un entero.
         $prestamo["idLibro"] = (int)$datos["idLibro"];
