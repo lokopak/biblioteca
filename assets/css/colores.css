@@ -18,3 +18,20 @@ body {
 }
 
 
+/* #background {
+    background-image: url("/biblioteca/assets/images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: opacity(50%);
+    -moz-filter: opacity(50%);
+    -o-filter: opacity(50%);
+    -ms-filter: opacity(50%);
+    filter: opacity(50%);
+} */
+
+#backgorund::before {
+    content: "";
+}
+
+
