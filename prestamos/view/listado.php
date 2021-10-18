@@ -193,7 +193,7 @@
         ?>
         <div class="row">
             <div class="col my-3">
-                <?php mostrarPaginador("libros", $resultado); ?>
+                <?php mostrarPaginador("prestamos", $resultado); ?>
             </div>
         </div>
         <?php
