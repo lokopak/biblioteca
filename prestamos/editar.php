@@ -6,6 +6,8 @@ require_once(__DIR__ . "/../view/head.php");
 require_once(__DIR__ . "/model/db.php");
 // Cargamos el código necesario para manejar la tabla de libros en la base de datos
 require_once(__DIR__ . "/../libros/model/db.php");
+// Cargamos el código necesario para manejar la tabla de libros en la base de datos
+require_once(__DIR__ . "/../libros/model/libro.php");
 // Cargamos el código necesario para manejar la tabla de socios en la base de datos.
 require_once(__DIR__ . "/../socios/model/db.php");
 // Cargamos las funciones necesarias para acceder a los datos de la request (solicitud)

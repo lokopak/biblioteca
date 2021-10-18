@@ -233,6 +233,68 @@ function librosInsertarNuevo($titulo, $editorial, $genero, $isbn, $anhoPublicaci
     return false;
 }
 
+/** JJ ******************************************************
+ * Actualiza un libro con los nuevos datos
+ * recibidos.
+ * 
+ * @param $titulo El nuevo titulo del libro
+ * @param $editorial Nueva editorial asignada
+ * @param $genero Nuevo genero
+ * @param $isbn Nueva ISBN
+ * @param $anhoPublicacion Nueno año de publicacion
+ * @param $autores Nuevo autor
+ * @param $idLibro Id del libro que se va a editar.
+ * 
+ * @return boolean El resultado de la operación
+ * 
+ * @throws Exception 
+ */
+function librosActualizar($titulo, $editorial, $genero, $isbn, $anhoPublicacion, $autores, $idLibro)
+{
+    try {
+
+        $query = sprintf(
+            "UPDATE libros SET
+        titulo='%s',
+        editorial='%s',
+        genero=%d,
+        isbn='%s',
+        anhoPublicacion=%d
+        WHERE idLibro = %d",
+            $titulo,
+            $editorial,
+            $genero,
+            $isbn,
+            $anhoPublicacion,
+            $idLibro
+        );
+
+        // Enviamos la query
+        $resultado = realizarQuery($query);
+
+        // Si se ha obtenido un resultado
+        if ($resultado) {
+            if (!empty($autores)) {
+                // Creamos el query.
+                // Agregamos los valores de cada uno de los autores en la query.
+
+                for ($i = 0; $i < count($autores); $i++) {
+                    $query = sprintf("UPDATE autor_libro SET idAutor=%d, idLibro=%d WHERE idLibro= %d", $autores[$i], $idLibro, $idLibro);
+                    // $resutlado es la idLibro devuelta al crear el nuevo libro por la base de datos.
+                    // Si no es el último elemento, agregamos una coma al final
+
+                    $resultado = realizarQuery($query);
+                }
+            }
+
+            return $resultado;
+        }
+    } catch (Exception $e) {
+        agregarError("Ha ocurrido un errror: " . $e->getMessage(), "Error inesperado");
+    }
+    return false;
+}
+
 /**
  * Permite actualizar directamente en estado de un libro
  * directamente.

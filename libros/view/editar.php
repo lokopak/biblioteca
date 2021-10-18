@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-12 col-sm-10 col-xl-6 mx-md-auto my-4">
-        <form method="post" action="/biblioteca/autores/editar.php?idLibro">
+        <form method="post" action="/biblioteca/libros/editar.php?idLibro=<?= $libro['idLibro'] ?>">
             <div class="card rounded-top border-dark bg-transparent">
                 <div class="card-title bg-naranja p-3 rounded-top mb-0">
-                    <h1 class="mb-0"><i class="bi bi-book me-2 fs-1"></i>Agregar nuevo libro</h1>
+                    <h1 class="mb-0"><i class="bi bi-book me-2 fs-1"></i>Editar libro</h1>
                 </div>
                 <div class="card-body bg-white rounded-bottom">
                     <div class="row mb-3">
@@ -13,8 +13,8 @@
                                     <label for="titulo" class="form-label">
                                         <i class="bi bi-bookmark-check me-2"></i>Títuo
                                     </label>
-                                    <input name="titulo" type="text" placeholder="Título del libro"
-                                        class="form-control">
+                                    <input name="titulo" type="text" placeholder="Título del libro" class="form-control"
+                                        value="<?= $libro['titulo'] ?>">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -22,7 +22,8 @@
                                     <label for="editorial" class="form-label">
                                         <i class="bi bi-bookmark-heart me-2"></i>Editorial
                                     </label>
-                                    <input name="editorial" type="text" placeholder="Editorial" class="form-control">
+                                    <input name="editorial" type="text" placeholder="Editorial" class="form-control"
+                                        value="<?= $libro['editorial'] ?>">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -48,7 +49,8 @@
                                         <i class="bi bi-clock me-2"></i>Año de edición
                                     </label>
                                     <input name="anhoPublicacion" min="1000" max="2999" type="number"
-                                        placeholder="Año de publicación" class="form-control">
+                                        placeholder="Año de publicación" class="form-control"
+                                        value="<?= $libro['anhoPublicacion'] ?>">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -57,7 +59,8 @@
                                     <label for="isbn" class="form-label">
                                         <i class="bi bi-file-earmark-word me-2"></i>ISBN
                                     </label>
-                                    <input name="isbn" type="text" placeholder="ISBN" class="form-control">
+                                    <input name="isbn" type="text" placeholder="ISBN" class="form-control"
+                                        value="<?= $libro['isbn'] ?>">
                                 </div>
                             </div>
                         </div>
