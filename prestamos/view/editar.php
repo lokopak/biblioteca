@@ -76,8 +76,7 @@
                         <div class="col">
                             <label class="form-check-label me-2" for="estado">Estado del préstamo:</label>
                             <div class="form-check form-check-inline">
-                                <?php if ((int)$prestamo["estado"] === PRESTAMO_ESTADO_DEVUELTO) {
-                                        print_r($prestamo); ?>
+                                <?php if ((int)$prestamo["estado"] === PRESTAMO_ESTADO_DEVUELTO) { ?>
                                 <input class="form-check-input" type="radio" name="estado" id="estado"
                                     value="<?= PRESTAMO_ESTADO_DEVUELTO ?>" checked>
                                 <?php } else { ?>
