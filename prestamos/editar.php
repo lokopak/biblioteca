@@ -141,7 +141,7 @@ else {
 // $orden = "ASC";
 // $estado = null;
 // Las páginas y los límites los enviamos como null para que se cargen todos los que se encuentren en la base de datos.
-$libros = librosBuscarTodos(null, null, "titulo", "ASC", LIBRO_ESTADO_DISPONIBLE);
+$libros = librosBuscarTodos(null, null, "titulo", "ASC", null);
 $socios = sociosBuscarTodos(null, null, "apellidos", "ASC", SOCIO_ESTADO_ACTIVO);
 
 if (hayMensajes()) {
