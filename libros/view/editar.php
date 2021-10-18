@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 col-sm-10 col-xl-6 mx-md-auto my-4">
-        <form method="post" action="/biblioteca/autores/crear.php">
+        <form method="post" action="/biblioteca/autores/editar.php?idLibro">
             <div class="card rounded-top border-dark bg-transparent">
                 <div class="card-title bg-naranja p-3 rounded-top mb-0">
                     <h1 class="mb-0"><i class="bi bi-book me-2 fs-1"></i>Agregar nuevo libro</h1>

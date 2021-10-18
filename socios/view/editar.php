@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 col-sm-10 col-xl-6 mx-md-auto my-4">
-        <form method="post" action="/biblioteca/socios/crear.php">
+        <form method="post" action="/biblioteca/socios/editar.php?idSocio=<?= $socio["idSocio"] ?>">
             <div class="card rounded-top border-dark bg-transparent">
                 <div class="card-title bg-naranja p-3 rounded-top mb-0">
                     <h1 class="mb-0"><i class="bi bi-person me-2 fs-1"></i>Agregar socio</h1>
