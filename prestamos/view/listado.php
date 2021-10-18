@@ -183,9 +183,7 @@
                 </table>
 
             </div>
-
         </div>
-
         <?php
 
                     // Si se indica página o límite, mostramos el paginador.

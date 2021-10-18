@@ -13,26 +13,31 @@ if (isset($_POST) && count($_POST) > 0) {
 
     if (isset($_POST['nombre'])) {
         $nombre = $_POST['nombre'];
+        $autor["nombre"] = $nombre;
     } else {
         // error
     }
     if (isset($_POST['apellidos'])) {
         $apellidos = $_POST['apellidos'];
+        $autor["apellidos"] = $nombre;
     } else {
         // error
     }
     if (isset($_POST['nacionalidad'])) {
         $nacionalidad = $_POST['nacionalidad'];
+        $autor["nacionalidad"] = $nombre;
     } else {
         // error
     }
     if (isset($_POST['fechaNacimiento'])) {
         $fechaNacimiento = $_POST['fechaNacimiento'];
+        $autor["fechaNacimiento"] = $nombre;
     } else {
         // error
     }
 
     $resultado = autoresActualizar($nombre, $apellidos, $nacionalidad, $fechaNacimiento, $idAutor);
+
 
     if ($resultado) {
         agregarMensaje("Autor actualziado correctamente", "success");
